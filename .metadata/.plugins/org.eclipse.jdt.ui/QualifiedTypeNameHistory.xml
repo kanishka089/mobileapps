@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.view.Window"/>
+<fullyQualifiedTypeName name="android.view.WindowManager"/>
+<fullyQualifiedTypeName name="android.view.WindowManager.LayoutParams"/>
+<fullyQualifiedTypeName name="android.R"/>
+</qualifiedTypeNameHistroy>
