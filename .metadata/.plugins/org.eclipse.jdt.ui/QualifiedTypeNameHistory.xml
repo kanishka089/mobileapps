@@ -4,4 +4,12 @@
 <fullyQualifiedTypeName name="android.view.WindowManager"/>
 <fullyQualifiedTypeName name="android.view.WindowManager.LayoutParams"/>
 <fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
+<fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.R.layout"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.R.id"/>
+<fullyQualifiedTypeName name="android.widget.EditText"/>
+<fullyQualifiedTypeName name="android.widget.Toast"/>
 </qualifiedTypeNameHistroy>
