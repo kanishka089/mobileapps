@@ -1,0 +1,24 @@
+package com.diary.superdiary;
+
+import android.app.Activity;
+import android.app.ListActivity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class home extends ListActivity{
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setListAdapter(new ArrayAdapter<String>(this, R.layout.home,itms));
+		ListView list=getListView();
+		list.setTextFilterEnabled(true);
+	}
+	
+	static final String itms[]=new String[]{
+		"I ate rice","I drank tea","I went to work","I called Babi","I ate rice","I drank tea","I went to work","I called Babi"
+	};
+	
+}

@@ -23,6 +23,7 @@ public class MainActivity extends Activity{
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         Button enter=(Button) findViewById(R.id.button1);
+        
         pass=(EditText) findViewById(R.id.pass);
         final Toast error=Toast.makeText(this,"Invalid Login", Toast.LENGTH_SHORT);
         enter.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +41,8 @@ public class MainActivity extends Activity{
 				
 			}
 		});
+        
+        
         
                 
     }
