@@ -11,7 +11,7 @@
         android:text="Add New"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="addItems"/>
+        />
 
     <ListView
         android:id="@android:id/list"
