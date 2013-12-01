@@ -93,11 +93,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
+        	home.ArrayofName.clear();
             do {
                 getsetinfo contact = new getsetinfo();
                 contact.setID(Integer.parseInt(cursor.getString(0)));
                 contact.setDate(cursor.getString(1));
                 contact.setnote(cursor.getString(2));
+                
+                
+                String name = cursor.getString(2);
+                home.ArrayofName.add(name);
                 // Adding contact to list
                 contactList.add(contact);
             } while (cursor.moveToNext());
