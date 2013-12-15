@@ -83,8 +83,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
      
     // Getting All Contacts
-    public List<getsetinfo> getAllContacts() {
-        List<getsetinfo> contactList = new ArrayList<getsetinfo>();
+    public ArrayList<getsetinfo> getAllContacts() {
+    	ArrayList<getsetinfo> contactList = new ArrayList<getsetinfo>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
  
@@ -93,7 +93,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
-        	home.ArrayofName.clear();
+        	//home.ArrayofName.clear();
             do {
                 getsetinfo contact = new getsetinfo();
                 contact.setID(Integer.parseInt(cursor.getString(0)));
@@ -101,8 +101,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 contact.setnote(cursor.getString(2));
                 
                 
-                String name = cursor.getString(2);
-                home.ArrayofName.add(name);
+                //String name = cursor.getString(2);
+                //home.ArrayofName.add(name);
                 // Adding contact to list
                 contactList.add(contact);
             } while (cursor.moveToNext());

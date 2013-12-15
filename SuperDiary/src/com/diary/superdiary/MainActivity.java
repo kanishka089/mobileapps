@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
 				// TODO Auto-generated method stub
 				if (pass.getText().toString().equals("kani")) {
 					startActivity(new Intent("com.diary.superdiary.login"));
+					finish();
 				} else {
 					pass.setText("");
 					error.show();
@@ -53,6 +54,6 @@ public class MainActivity extends Activity {
 	
 	}
 
-	
+
 
 }
