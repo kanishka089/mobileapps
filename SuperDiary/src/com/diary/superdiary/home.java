@@ -6,7 +6,9 @@ import java.util.List;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,10 +17,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class home extends Activity{
@@ -26,6 +31,7 @@ public class home extends Activity{
 	
 	ListView listView;
 	//public static ArrayList<String> ArrayofName = new ArrayList<String>();
+	ArrayList<getsetinfo> contactList = new ArrayList<getsetinfo>();
 	
 	
 	@Override
@@ -39,8 +45,8 @@ public class home extends Activity{
 		
 		Button addnew = (Button) findViewById(R.id.addBtn);
 		
-		DatabaseHandler db = new DatabaseHandler(this);
-		ArrayList<getsetinfo> contactList = new ArrayList<getsetinfo>();
+		final DatabaseHandler db = new DatabaseHandler(this);
+		
 
 		contactList=db.getAllContacts();
 
@@ -61,7 +67,37 @@ public class home extends Activity{
             }
         });*/
 		
-		
+		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+					final int position,long arg3) {
+				// TODO Auto-generated method stub
+				AlertDialog.Builder b=new AlertDialog.Builder(home.this);
+				b.setIcon(android.R.drawable.ic_dialog_alert);
+				b.setMessage("Are you sure you want to delete this");
+				b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+					  public void onClick(DialogInterface dialog, int whichButton) {
+						  Toast.makeText(getApplicationContext(),
+                                  "Deleted", Toast.LENGTH_LONG)
+                                  .show();
+						  TextView dbid = (TextView) findViewById(R.id.cityState);
+						  db.deleteRow(Integer.parseInt(dbid.getText().toString()));	
+					  }
+					});
+				b.setNegativeButton("No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                    int whichButton) {
+                                dialog.cancel();
+                            }
+                        });
+
+                b.show();
+				return false;
+			}
+			
+		});
 		
 	    
 	    addnew.setOnClickListener(new OnClickListener() {
