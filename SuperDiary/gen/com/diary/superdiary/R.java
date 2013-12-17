@@ -22,13 +22,14 @@ public final class R {
     }
     public static final class drawable {
         public static final int blue2=0x7f020000;
-        public static final int border=0x7f020001;
-        public static final int diaryicon=0x7f020002;
-        public static final int diarypage1=0x7f020003;
-        public static final int ic_launcher=0x7f020004;
-        public static final int ic_menu_save=0x7f020005;
-        public static final int index=0x7f020006;
-        public static final int kygk=0x7f020007;
+        public static final int btnpressed=0x7f020001;
+        public static final int btnup=0x7f020002;
+        public static final int diaryicon=0x7f020003;
+        public static final int diarypage1=0x7f020004;
+        public static final int ic_launcher=0x7f020005;
+        public static final int ic_menu_save=0x7f020006;
+        public static final int index=0x7f020007;
+        public static final int kygk=0x7f020008;
     }
     public static final class id {
         public static final int action_settings=0x7f08000c;
@@ -49,8 +50,10 @@ public final class R {
         public static final int activity_main=0x7f030000;
         public static final int addnewrecord=0x7f030001;
         public static final int custom_row_view=0x7f030002;
-        public static final int home=0x7f030003;
-        public static final int menu=0x7f030004;
+        public static final int custombtnhover=0x7f030003;
+        public static final int customlistviewhover=0x7f030004;
+        public static final int home=0x7f030005;
+        public static final int menu=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f070000;
