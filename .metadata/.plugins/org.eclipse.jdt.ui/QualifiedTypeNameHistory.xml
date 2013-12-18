@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
 <fullyQualifiedTypeName name="android.view.Gravity"/>
-<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="android.widget.Toast"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.R.anim"/>
@@ -17,7 +16,6 @@
 <fullyQualifiedTypeName name="android.util.Log"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.R.id"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.widget.EditText"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
@@ -35,7 +33,6 @@
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.R.layout"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemLongClickListener"/>
-<fullyQualifiedTypeName name="com.diary.superdiary.home"/>
 <fullyQualifiedTypeName name="android.app.AlertDialog"/>
 <fullyQualifiedTypeName name="android.app.AlertDialog.Builder"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface"/>
@@ -45,10 +42,13 @@
 <fullyQualifiedTypeName name="android.database.Cursor"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="android.widget.ListView"/>
-<fullyQualifiedTypeName name="com.diary.superdiary.getsetinfo"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="android.os.Vibrator"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.R.color"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.home"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.getsetinfo"/>
 </qualifiedTypeNameHistroy>

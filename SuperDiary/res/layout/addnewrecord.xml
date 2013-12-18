@@ -2,15 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#034c90"
+    android:background="#FFFFFF"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter Your Note Here"
-        android:textSize="20sp" />
+    
 
     <EditText
         android:id="@+id/editText1"
@@ -20,6 +15,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:gravity="top"
+        android:background="@layout/edittextborder"
+        android:hint="Type Here"
         android:inputType="textMultiLine" >
 
         <requestFocus />
