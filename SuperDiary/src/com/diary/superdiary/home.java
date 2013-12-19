@@ -36,7 +36,8 @@ public class home extends Activity{
 	ListView listView;
 	//public static ArrayList<String> ArrayofName = new ArrayList<String>();
 	ArrayList<getsetinfo> contactList = new ArrayList<getsetinfo>();
-	
+	//String date;
+	//String note;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,7 @@ public class home extends Activity{
 		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
 			
 			@Override
-			public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+			public boolean onItemLongClick(AdapterView<?> arg0, final View arg1,
 					final int position,long arg3) {
 				Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 				// Vibrate for 500 milliseconds
@@ -87,12 +88,12 @@ public class home extends Activity{
 				b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 					  public void onClick(DialogInterface dialog, int whichButton) {
 						  
-						  Toast.makeText(getApplicationContext(),
+						 /* Toast.makeText(getApplicationContext(),
                                   "Deleted", Toast.LENGTH_LONG)
-                                  .show();
-						  TextView dbid = (TextView) findViewById(R.id.cityState);
+                                  .show();*/
+						  TextView dbid = (TextView) arg1.findViewById(R.id.cityState);
 						  db.deleteRow(Integer.parseInt(dbid.getText().toString()));
-						  
+						  //ma.notifyDataSetChanged();
 						  Intent intent = getIntent();
 						    finish();
 						    startActivity(intent);
@@ -112,20 +113,28 @@ public class home extends Activity{
 			
 		});
 		
+		
+		
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 					long arg3) {
+				
 				// TODO Auto-generated method stub
-				TextView dbidsingle = (TextView) findViewById(R.id.cityState);
+				//String word = listView.getItemAtPosition(position).toString();
+				TextView dbidsingle = (TextView) arg1.findViewById(R.id.cityState);
 				getsetinfo get= db.getContact(Integer.parseInt(dbidsingle.getText().toString()));
 				String date=get.getDate();
 				String note=get.getnote();
-				Toast.makeText(getApplicationContext(),
+				/*Toast.makeText(getApplicationContext(),
 						date, Toast.LENGTH_LONG)
-                        .show();
-				
+                        .show();*/
+				Intent intent = new Intent(home.this, viewdata.class); 
+                intent.putExtra("extra", date);
+                intent.putExtra("extra1", note);
+                startActivity(intent);
+				//startActivity(new Intent("com.diary.superdiary.viewdata"));
 			}
 			
 		});
@@ -152,7 +161,6 @@ public class home extends Activity{
 		this.onCreate(null);
 	}
 
-	
 
 
 	

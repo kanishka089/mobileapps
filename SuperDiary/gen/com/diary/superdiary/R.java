@@ -32,18 +32,22 @@ public final class R {
         public static final int kygk=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000c;
+        public static final int action_settings=0x7f080010;
         public static final int addBtn=0x7f080008;
         public static final int button1=0x7f080001;
         public static final int cityState=0x7f080006;
+        public static final int date=0x7f08000f;
         public static final int editText1=0x7f080002;
+        public static final int editText2=0x7f08000d;
         public static final int listView1=0x7f080009;
         public static final int menu_exit=0x7f08000b;
         public static final int menu_save=0x7f08000a;
         public static final int name=0x7f080005;
+        public static final int note=0x7f08000e;
         public static final int pass=0x7f080000;
         public static final int phone=0x7f080007;
         public static final int textView1=0x7f080004;
+        public static final int textView2=0x7f08000c;
         public static final int textView3=0x7f080003;
     }
     public static final class layout {
@@ -55,6 +59,8 @@ public final class R {
         public static final int edittextborder=0x7f030005;
         public static final int home=0x7f030006;
         public static final int menu=0x7f030007;
+        public static final int passwordchange=0x7f030008;
+        public static final int viewdata=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f070000;

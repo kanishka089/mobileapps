@@ -24,12 +24,10 @@
 <fullyQualifiedTypeName name="android.text.format.DateFormat"/>
 <fullyQualifiedTypeName name="android.widget.GridView"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
-<fullyQualifiedTypeName name="android.app.Activity"/>
 <fullyQualifiedTypeName name="android.view.MenuInflater"/>
 <fullyQualifiedTypeName name="android.view.Menu"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.addnewrecord"/>
 <fullyQualifiedTypeName name="android.view.MenuItem"/>
-<fullyQualifiedTypeName name="android.app.ListActivity"/>
 <fullyQualifiedTypeName name="android.widget.ArrayAdapter"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.R.layout"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemLongClickListener"/>
@@ -41,14 +39,18 @@
 <fullyQualifiedTypeName name="android.widget.AdapterView.AdapterContextMenuInfo"/>
 <fullyQualifiedTypeName name="android.database.Cursor"/>
 <fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="android.os.Vibrator"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.R.color"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.home"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.getsetinfo"/>
+<fullyQualifiedTypeName name="android.app.ListActivity"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
+<fullyQualifiedTypeName name="android.widget.ListView"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.MyCustomBaseAdapter"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.viewdata"/>
 </qualifiedTypeNameHistroy>
