@@ -1,0 +1,52 @@
+package com.diary.superdiary;
+
+public class getsetinfologin {
+    
+    //private variables
+    
+    String password;
+     
+    // Empty constructor
+    public getsetinfologin(){
+         
+    }
+    // constructor
+    public getsetinfologin(String pass){
+        this.password = pass;
+    }
+     
+    // constructor
+    public getsetinfologin(String date, String note){
+        this.date = date;
+        this.note = note;
+    }
+    // getting ID
+    public int getID(){
+        return this.id;
+    }
+     
+    // setting id
+    public void setID(int id){
+        this.id = id;
+    }
+     
+    // getting name
+    public String getDate(){
+        return this.date;
+    }
+     
+    // setting name
+    public void setDate(String name){
+        this.date = name;
+    }
+     
+    // getting phone number
+    public String getnote(){
+        return this.note;
+    }
+     
+    // setting phone number
+    public void setnote(String phone_number){
+        this.note = phone_number;
+    }
+}

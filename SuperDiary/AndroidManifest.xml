@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.diary.superdiary"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0"
+    >
 	<uses-permission android:name="android.permission.VIBRATE"/>
     <uses-sdk
         android:minSdkVersion="8"
@@ -12,10 +13,12 @@
         android:allowBackup="true"
         android:icon="@drawable/diaryicon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+         >
         <activity
             android:name="com.diary.superdiary.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +28,8 @@
         
         <activity
             android:name=".home"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.diary.superdiary.login" />
 
@@ -35,7 +39,8 @@
         
         <activity
             android:name=".addnewrecord"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"  >
             <intent-filter>
                 <action android:name="com.diary.superdiary.addnew" />
 
@@ -44,9 +49,20 @@
         </activity>
         <activity
             android:name=".viewdata"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.diary.superdiary.viewdata" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".passwordchange"
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="com.diary.superdiary.passchange" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

@@ -21,12 +21,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
     // Contacts table name
     private static final String TABLE_NAME = "notes";
- 
+ // Contacts table name
+    private static final String TABLE_NAMElogin = "login";
+    
+    
     // Contacts Table Columns names
     private static final String KEY_ID = "id";
     private static final String KEY_DATE = "date";
     private static final String KEY_NOTE = "note";
- 
+ // Contacts Table Columns names
+    private static final String KEY_IDlogin = "id";
+    private static final String KEY_pass = "pass";
+    
+    
+    
+    
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -37,7 +46,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_NAME + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_DATE + " TEXT,"
                 + KEY_NOTE + " TEXT" + ")";
+        String CREATE_CONTACTS_TABLElogin = "CREATE TABLE " + TABLE_NAMElogin + "("
+                + KEY_IDlogin + " INTEGER PRIMARY KEY," + KEY_pass + " TEXT" + ")";
+        
         db.execSQL(CREATE_CONTACTS_TABLE);
+        db.execSQL(CREATE_CONTACTS_TABLElogin);
+        
+        
     }
  
     // Upgrading database
@@ -45,7 +60,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
- 
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAMElogin);
         // Create tables again
         onCreate(db);
     }
@@ -66,6 +81,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.insert(TABLE_NAME, null, values);
         db.close(); // Closing database connection
     }
+    
+ // Adding new contactlogin
+    void addContactlogin(getsetinfologin info) {
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        ContentValues values = new ContentValues();
+        values.put(KEY_pass, info.getpass()); // Contact Name
+ 
+        // Inserting Row
+        db.insert(TABLE_NAMElogin, null, values);
+        db.close(); // Closing database connection
+        
+    }
+ 
  
     // Getting single contact
     getsetinfo getContact(int id) {
@@ -82,12 +111,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // return contact
         return contact;
     }
+ // Getting single contact
+    getsetinfologin getContactlogin(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+ 
+        Cursor cursor = db.query(TABLE_NAMElogin, new String[] { KEY_IDlogin,
+        		KEY_pass}, KEY_IDlogin + "=?",
+                new String[] { String.valueOf(id) }, null, null, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+ 
+        getsetinfologin contact = new getsetinfologin(Integer.parseInt(cursor.getString(0)),
+                cursor.getString(1));
+        // return contact
+        return contact;
+    }
      
     // Getting All Contacts
     public ArrayList<getsetinfo> getAllContacts() {
     	ArrayList<getsetinfo> contactList = new ArrayList<getsetinfo>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_NAME;
+        String selectQuery = "SELECT  * FROM " + TABLE_NAME + " ORDER BY "+ KEY_ID +" DESC";
  
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -151,6 +195,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
  
         // return count
         return cursor.getCount();
+    }
+ // Getting contacts Count
+    public int getContactsCountlogin() {
+        String countQuery = "SELECT  * FROM " + TABLE_NAMElogin;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int cnt = cursor.getCount();
+        cursor.close();
+ 
+        // return count
+        return cnt;
     }
  
 }

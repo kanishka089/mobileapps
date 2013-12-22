@@ -1,0 +1,29 @@
+package com.diary.superdiary;
+
+public class getsetinfologin {
+    
+    //private variables
+    
+    String password;
+     
+    // Empty constructor
+    public getsetinfologin(){
+         
+    }
+    // constructor
+    public getsetinfologin(String pass){
+        this.password = pass;
+    }
+
+     
+    // getting name
+    public String getpassword(){
+        return this.date;
+    }
+     
+    // setting name
+    public void setpassword(String pass){
+        this.password = pass;
+    }
+
+}

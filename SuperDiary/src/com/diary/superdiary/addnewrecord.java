@@ -34,7 +34,7 @@ public class addnewrecord extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		final DatabaseHandler db = new DatabaseHandler(this);
+		
 		
 		
 		super.onCreate(savedInstanceState);

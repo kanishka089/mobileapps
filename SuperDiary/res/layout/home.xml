@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
-    android:background="#034c90"
+    android:background="@drawable/t2"
      >
-     <Button
+
+    <Button
         android:id="@+id/addBtn"
-        android:layout_width="60dp"
-        android:layout_height="55dp"
-        android:background="@layout/custombtnhover" 
-        />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@layout/custombtnhover" />
 
      <ListView
          android:id="@+id/listView1"

@@ -127,8 +127,9 @@ public class home extends Activity{
 				getsetinfo get= db.getContact(Integer.parseInt(dbidsingle.getText().toString()));
 				String date=get.getDate();
 				String note=get.getnote();
+				//int i=get.getID();
 				/*Toast.makeText(getApplicationContext(),
-						date, Toast.LENGTH_LONG)
+						i+"", Toast.LENGTH_LONG)
                         .show();*/
 				Intent intent = new Intent(home.this, viewdata.class); 
                 intent.putExtra("extra", date);

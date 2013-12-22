@@ -1,0 +1,100 @@
+package com.diary.superdiary;
+
+import java.util.ArrayList;
+import java.util.List;
+ 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.SyncStateContract.Constants;
+ 
+public class DatabaseHandlerlogin extends SQLiteOpenHelper {
+ 
+    // All Static variables
+    // Database Version
+    private static final int DATABASE_VERSION = 1;
+ 
+    // Database Name
+    private static final String DATABASE_NAME = "diary";
+ 
+    // Contacts table name
+    private static final String TABLE_NAME = "login";
+    
+    
+    // Contacts Table Columns names
+    private static final String password = "password";
+    
+    
+    
+    public DatabaseHandlerlogin(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+ 
+    // Creating Tables
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_NAME + "("
+                + password + " TEXT PRIMARY KEY" + ")";
+        
+        db.execSQL(CREATE_CONTACTS_TABLE);
+        
+        
+    }
+ 
+    // Upgrading database
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        // Drop older table if existed
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+ 
+        // Create tables again
+        onCreate(db);
+    }
+ 
+    /**
+     * All CRUD(Create, Read, Update, Delete) Operations
+     */
+ 
+    // Adding new contact
+    void addContact(getsetinfologin info) {
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        ContentValues values = new ContentValues();
+        values.put(password, info.getpassword()); // Contact Name
+ 
+        // Inserting Row
+        db.insert(TABLE_NAME, null, values);
+        db.close(); // Closing database connection
+    }
+ 
+ 
+    // Getting single contact
+    getsetinfologin getContact() {
+    	String selectQuery = "SELECT  * FROM " + TABLE_NAME;
+    	SQLiteDatabase db = this.getReadableDatabase();
+ 
+    	Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor != null)
+            cursor.moveToFirst();
+ 
+        getsetinfologin contact = new getsetinfologin(cursor.getString(0));
+        // return contact
+        return contact;
+    }
+
+
+ 
+    // Getting contacts Count
+    public int getContactsCountlogin() {
+        String countQuery = "SELECT  * FROM " + TABLE_NAME;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        cursor.close();
+ 
+        // return count
+        return cursor.getCount();
+    }
+ 
+}

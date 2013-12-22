@@ -1,0 +1,21 @@
+package snippet;
+
+public class Snippet {
+	@Override
+	protected void onRestart() {
+		// TODO Auto-generated method stub
+		super.onRestart();
+		this.onCreate(null);
+	}
+	
+	
+	
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		this.onCreate(null);
+	}
+}
+
