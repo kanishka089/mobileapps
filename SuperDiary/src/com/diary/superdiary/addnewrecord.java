@@ -48,8 +48,22 @@ public class addnewrecord extends Activity {
 		dates.setText(s);
 
 		note=(EditText)findViewById(R.id.editText1);
-		
-		
+		Button set = (Button) findViewById(R.id.set);
+		set.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				String notes=note.getText().toString();
+	        	if(!notes.equals("")){
+					db.addContact(new getsetinfo(s.toString(), notes));
+	
+					finish();
+		            Toast.makeText(addnewrecord.this, "Saved", Toast.LENGTH_SHORT).show();
+
+	        	}
+			}
+		});
 		// Inserting Contacts
 		/*Log.d("Insert: ", "Inserting ..");
 		db.addContact(new getsetinfo("Ravi", "9100000000"));
@@ -91,12 +105,14 @@ public class addnewrecord extends Activity {
 	            // Single menu item is selected do something
 	            // Ex: launching new activity/screen or show alert message
 	        	String notes=note.getText().toString();
-				db.addContact(new getsetinfo(s.toString(), notes));
-
-				finish();
-	            Toast.makeText(addnewrecord.this, "Saved", Toast.LENGTH_SHORT).show();
+	        	if(!notes.equals("")){
+					db.addContact(new getsetinfo(s.toString(), notes));
+	
+					finish();
+		            Toast.makeText(addnewrecord.this, "Saved", Toast.LENGTH_SHORT).show();
+	        	
 	            return true;
-	 
+	        	}
 	        default:
 	            return super.onOptionsItemSelected(item);
 	        }

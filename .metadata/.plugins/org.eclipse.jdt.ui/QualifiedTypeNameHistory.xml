@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="android.view.Window"/>
-<fullyQualifiedTypeName name="android.view.WindowManager"/>
-<fullyQualifiedTypeName name="android.view.WindowManager.LayoutParams"/>
-<fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.content.DialogInterface.OnClickListener"/>
 <fullyQualifiedTypeName name="android.content.Intent"/>
-<fullyQualifiedTypeName name="android.view.Gravity"/>
 <fullyQualifiedTypeName name="android.view.View"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.R.anim"/>
 <fullyQualifiedTypeName name="android.view.animation.Animation"/>
@@ -47,7 +42,6 @@
 <fullyQualifiedTypeName name="android.widget.ListView"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.MyCustomBaseAdapter"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.viewdata"/>
-<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.DatabaseHandlerlogin"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.getsetinfologin"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="com.diary.superdiary.R.id"/>
 <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
 <fullyQualifiedTypeName name="android.text.util.Linkify"/>
+<fullyQualifiedTypeName name="com.google.analytics.tracking.android.EasyTracker"/>
+<fullyQualifiedTypeName name="com.smaato.soma.BannerView"/>
+<fullyQualifiedTypeName name="android.widget.RelativeLayout"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup.LayoutParams"/>
+<fullyQualifiedTypeName name="android.view.Gravity"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 </qualifiedTypeNameHistroy>

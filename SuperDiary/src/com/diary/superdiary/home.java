@@ -2,6 +2,10 @@ package com.diary.superdiary;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.smaato.soma.BannerView;
+
+
 
 
 
@@ -15,7 +19,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
@@ -27,6 +33,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +55,14 @@ public class home extends Activity{
 		
 		setContentView(R.layout.home);
 		
+		BannerView mBanner = new BannerView (this);
+		RelativeLayout myRelativeLayout = (RelativeLayout) findViewById(R.id.hme);
+		myRelativeLayout.addView(mBanner, new LayoutParams(LayoutParams.MATCH_PARENT, 70));
+		mBanner.setX(20);
+		mBanner.setY(1010);
+		mBanner.getAdSettings().setPublisherId(923875090);
+		mBanner.getAdSettings().setAdspaceId(65821835);
+		mBanner.asyncLoadNewBanner();
 		
 		Button addnew = (Button) findViewById(R.id.addBtn);
 		
@@ -160,6 +175,22 @@ public class home extends Activity{
 		// TODO Auto-generated method stub
 		super.onResume();
 		this.onCreate(null);
+	}
+
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);  // Add this method.
+
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);  // Add this method.
+
 	}
 
 
