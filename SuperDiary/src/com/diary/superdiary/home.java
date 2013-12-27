@@ -59,7 +59,7 @@ public class home extends Activity{
 		RelativeLayout myRelativeLayout = (RelativeLayout) findViewById(R.id.hme);
 		myRelativeLayout.addView(mBanner, new LayoutParams(LayoutParams.MATCH_PARENT, 70));
 		mBanner.setX(20);
-		mBanner.setY(1010);
+		mBanner.setY(1000);
 		mBanner.getAdSettings().setPublisherId(923875090);
 		mBanner.getAdSettings().setAdspaceId(65821835);
 		mBanner.asyncLoadNewBanner();

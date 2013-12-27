@@ -2,20 +2,28 @@ package com.diary.superdiary;
 
 import java.util.regex.Pattern;
 
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.text.util.Linkify;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,7 +31,7 @@ public class MainActivity extends Activity {
 	EditText pass;
 	public static String ps="empty";
 	TextView url1;
-	
+	RelativeLayout rl;
 	
 	
 	@Override
@@ -32,6 +40,8 @@ public class MainActivity extends Activity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		
+		
 		
 		final DatabaseHandler db1 = new DatabaseHandler(this);
 		//db1.addContact(new getsetinfo("21/12/2013","this is test data"));
@@ -60,8 +70,15 @@ public class MainActivity extends Activity {
 				i+"", Toast.LENGTH_LONG)
                 .show();*/
 		setContentView(R.layout.activity_main);
+		Display display = getWindowManager().getDefaultDisplay();
 		
-		
+		rl=(RelativeLayout)findViewById(R.id.login);
+		AdSize adSize = new AdSize(290,50);
+		//AdView ad= new AdView(this, AdSize.BANNER, "a152bb91454d37d"); 
+		AdView ad=new AdView(MainActivity.this, AdSize.createAdSize(adSize, getBaseContext()),"a152bb91454d37d");	
+		//ad.setY(200);
+		rl.addView(ad);
+		ad.loadAd(new AdRequest());
 		
 		/*if(ps.equals("empty")){
 			startActivity(new Intent("com.diary.superdiary.passchange"));

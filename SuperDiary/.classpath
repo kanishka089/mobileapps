@@ -7,5 +7,6 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="lib" path="E:/Company projects/mobileapps/SuperDiary/libs/libGoogleAnalyticsServices.jar"/>
 	<classpathentry kind="lib" path="E:/Company projects/mobileapps/SuperDiary/libs/SOMAAndroidSDK4.0.7.jar"/>
+	<classpathentry kind="lib" path="E:/Company projects/mobileapps/SuperDiary/libs/GoogleAdMobAdsSdk-6.4.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
