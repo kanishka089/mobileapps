@@ -55,14 +55,14 @@ public class home extends Activity{
 		
 		setContentView(R.layout.home);
 		
-		BannerView mBanner = new BannerView (this);
+		/*BannerView mBanner = new BannerView (this);
 		RelativeLayout myRelativeLayout = (RelativeLayout) findViewById(R.id.hme);
 		myRelativeLayout.addView(mBanner, new LayoutParams(LayoutParams.MATCH_PARENT, 70));
 		mBanner.setX(20);
-		mBanner.setY(1000);
+		mBanner.setY(700);
 		mBanner.getAdSettings().setPublisherId(923875090);
 		mBanner.getAdSettings().setAdspaceId(65821835);
-		mBanner.asyncLoadNewBanner();
+		mBanner.asyncLoadNewBanner();*/
 		
 		Button addnew = (Button) findViewById(R.id.addBtn);
 		

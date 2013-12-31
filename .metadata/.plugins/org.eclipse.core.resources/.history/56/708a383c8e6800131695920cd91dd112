@@ -1,7 +1,0 @@
-package com.diary.superdiary;
-
-import android.app.Activity;
-
-public class viewdata extends Activity{
-	
-}
