@@ -30,7 +30,6 @@
 <fullyQualifiedTypeName name="android.os.Vibrator"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="android.R.color"/>
-<fullyQualifiedTypeName name="com.diary.superdiary.home"/>
 <fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.getsetinfo"/>
 <fullyQualifiedTypeName name="android.app.ListActivity"/>
@@ -45,7 +44,6 @@
 <fullyQualifiedTypeName name="com.diary.superdiary.passwordchange"/>
 <fullyQualifiedTypeName name="android.text.method.ScrollingMovementMethod"/>
 <fullyQualifiedTypeName name="android.widget.TextView"/>
-<fullyQualifiedTypeName name="com.diary.superdiary.R.id"/>
 <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
 <fullyQualifiedTypeName name="android.text.util.Linkify"/>
 <fullyQualifiedTypeName name="com.google.analytics.tracking.android.EasyTracker"/>
@@ -56,8 +54,10 @@
 <fullyQualifiedTypeName name="com.google.ads.AdSize"/>
 <fullyQualifiedTypeName name="com.diary.superdiary.MainActivity"/>
 <fullyQualifiedTypeName name="com.google.ads.AdView"/>
-<fullyQualifiedTypeName name="com.google.ads.AdRequest"/>
 <fullyQualifiedTypeName name="android.view.Display"/>
 <fullyQualifiedTypeName name="android.widget.FrameLayout"/>
 <fullyQualifiedTypeName name="android.view.Gravity"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.home"/>
+<fullyQualifiedTypeName name="com.diary.superdiary.R.id"/>
+<fullyQualifiedTypeName name="com.google.ads.AdRequest"/>
 </qualifiedTypeNameHistroy>

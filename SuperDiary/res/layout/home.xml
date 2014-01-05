@@ -9,22 +9,25 @@
     android:padding="15dp"
     android:background="@drawable/t2"
      >
-
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@layout/custombtnhover" />
-	
+      <Button
+         android:id="@+id/addBtn"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/listView1"
+         android:layout_alignParentTop="true"
+         android:layout_marginTop="47dp"
+         android:background="@layout/custombtnhover" />
      <ListView
          android:id="@+id/listView1"
          android:layout_width="fill_parent"
-         android:layout_height="500dp"
-         android:layout_alignLeft="@+id/addBtn"
+         android:layout_height="400dp"
          android:layout_below="@+id/addBtn"
          android:minHeight="10dp" >
 
      </ListView>
-     
+
+    
+        
+        />
 
 </RelativeLayout>

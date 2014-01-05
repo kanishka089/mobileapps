@@ -1,0 +1,218 @@
+package com.diary.superdiary;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.smaato.soma.BannerView;
+
+
+
+
+
+import android.R.color;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ListActivity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Vibrator;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.view.Window;
+import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class home extends Activity{
+	
+	
+	ListView listView;
+	//public static ArrayList<String> ArrayofName = new ArrayList<String>();
+	ArrayList<getsetinfo> contactList = new ArrayList<getsetinfo>();
+	//String date;
+	//String note;
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		
+		// TODO Auto-generated method stub
+		
+		super.onCreate(savedInstanceState);
+		
+		setContentView(R.layout.home);
+		
+		/*BannerView mBanner = new BannerView (this);
+		RelativeLayout myRelativeLayout = (RelativeLayout) findViewById(R.id.hme);
+		myRelativeLayout.addView(mBanner, new LayoutParams(LayoutParams.MATCH_PARENT, 100));
+		mBanner.setX(20);
+		mBanner.setY(50);
+		mBanner.getAdSettings().setPublisherId(923875090);
+		mBanner.getAdSettings().setAdspaceId(65822266);
+		mBanner.asyncLoadNewBanner();*/
+		
+		RelativeLayout rl=(RelativeLayout)findViewById(R.id.hme);
+		//AdSize adSize = new AdSize(290,50);
+		//AdView ad=new AdView(home.this, AdSize.createAdSize(adSize, getBaseContext()),"a152bb91454d37d");	
+		//ad.setY(200);
+		/*rl.addView(ad);
+		ad.loadAd(new AdRequest());*/
+		
+		AdView adView = new AdView(this, AdSize.BANNER, "a152bb91454d37d");
+		AdView.LayoutParams adViewParams = new AdView.LayoutParams(
+		    AdView.LayoutParams.WRAP_CONTENT,
+		    AdView.LayoutParams.WRAP_CONTENT);
+		//the next line is the key to putting it on the bottom
+		adViewParams.addRule(AdView.ALIGN_PARENT_BOTTOM);
+		rl.addView(adView, adViewParams);
+		
+		Button addnew = (Button) findViewById(R.id.addBtn);
+		
+		final DatabaseHandler db = new DatabaseHandler(this);
+		
+
+		contactList=db.getAllContacts();
+
+        listView = (ListView) findViewById(R.id.listView1);
+        listView.setAdapter(new MyCustomBaseAdapter(this, contactList));
+        /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, ArrayofName);
+
+        listView.setAdapter(adapter);*/
+        
+        //ArrayofName.clear();
+        
+        /*gridView.setOnItemClickListener(new OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                int position, long id) {
+               Toast.makeText(getApplicationContext(),
+                ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+            }
+        });*/
+		
+		listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+			
+			@Override
+			public boolean onItemLongClick(AdapterView<?> arg0, final View arg1,
+					final int position,long arg3) {
+				Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+				// Vibrate for 500 milliseconds
+				v.vibrate(50);
+				// TODO Auto-generated method stub
+				AlertDialog.Builder b=new AlertDialog.Builder(home.this);
+				b.setIcon(android.R.drawable.ic_dialog_alert);
+				b.setMessage("Are you sure you want to delete this");
+				b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+					  public void onClick(DialogInterface dialog, int whichButton) {
+						  
+						 /* Toast.makeText(getApplicationContext(),
+                                  "Deleted", Toast.LENGTH_LONG)
+                                  .show();*/
+						  TextView dbid = (TextView) arg1.findViewById(R.id.cityState);
+						  db.deleteRow(Integer.parseInt(dbid.getText().toString()));
+						  //ma.notifyDataSetChanged();
+						  Intent intent = getIntent();
+						    finish();
+						    startActivity(intent);
+					  }
+					});
+				b.setNegativeButton("No",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                    int whichButton) {
+                                dialog.cancel();
+                            }
+                        });
+				
+                b.show();
+				return false;
+			}
+			
+		});
+		
+		
+		
+		listView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				
+				// TODO Auto-generated method stub
+				//String word = listView.getItemAtPosition(position).toString();
+				TextView dbidsingle = (TextView) arg1.findViewById(R.id.cityState);
+				getsetinfo get= db.getContact(Integer.parseInt(dbidsingle.getText().toString()));
+				String date=get.getDate();
+				String note=get.getnote();
+				//int i=get.getID();
+				/*Toast.makeText(getApplicationContext(),
+						i+"", Toast.LENGTH_LONG)
+                        .show();*/
+				Intent intent = new Intent(home.this, viewdata.class); 
+                intent.putExtra("extra", date);
+                intent.putExtra("extra1", note);
+                startActivity(intent);
+				//startActivity(new Intent("com.diary.superdiary.viewdata"));
+			}
+			
+		});
+		
+		
+	    addnew.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				startActivity(new Intent("com.diary.superdiary.addnew"));
+			}
+		});
+	    
+	    
+		
+	}
+	//static final String[] food=new String[]{"k","s","d","a"};
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		this.onCreate(null);
+	}
+
+	@Override
+	protected void onStart() {
+		// TODO Auto-generated method stub
+		super.onStart();
+		EasyTracker.getInstance(this).activityStart(this);  // Add this method.
+
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+		EasyTracker.getInstance(this).activityStop(this);  // Add this method.
+
+	}
+
+
+
+	
+}
