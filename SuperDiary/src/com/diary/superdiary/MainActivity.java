@@ -1,31 +1,21 @@
 package com.diary.superdiary;
 
-import java.util.regex.Pattern;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.ads.AdRequest;
 import com.google.ads.AdSize;
 import com.google.ads.AdView;
-
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
-import android.text.util.Linkify;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	EditText pass;

@@ -1,14 +1,12 @@
 package com.diary.superdiary;
 
 import java.util.ArrayList;
-import java.util.List;
- 
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.SyncStateContract.Constants;
  
 public class DatabaseHandler extends SQLiteOpenHelper {
  
@@ -168,6 +166,19 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // updating row
         return db.update(TABLE_NAME, values, KEY_ID + " = ?",
                 new String[] { String.valueOf(info.getID()) });
+    }
+    
+ // Updating single contact
+    public int updaterow(String id,String note,String date) {
+        SQLiteDatabase db = this.getWritableDatabase();
+ 
+        ContentValues values = new ContentValues();
+        values.put(KEY_DATE, date);
+        values.put(KEY_NOTE, note);
+ 
+        // updating row
+        return db.update(TABLE_NAME, values, KEY_ID + " = ?",
+                new String[] { id });
     }
  
     // Deleting single contact

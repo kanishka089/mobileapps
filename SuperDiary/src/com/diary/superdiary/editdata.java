@@ -1,10 +1,7 @@
 package com.diary.superdiary;
 
-import java.util.Date;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class addnewrecord extends Activity {
+public class editdata extends Activity {
 	
 	final DatabaseHandler db = new DatabaseHandler(this);
 	EditText note;
@@ -28,55 +25,44 @@ public class addnewrecord extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		
-		setContentView(R.layout.addnewrecord);
+		setContentView(R.layout.editdata);
 		
-		Date d = new Date();
-		s  = DateFormat.format("dd/MM/yyyy ", d.getTime());
-		TextView dates = (TextView) findViewById(R.id.textView3);
-		dates.setText(s);
+		final String date = getIntent().getStringExtra("extra");
+		final String note = getIntent().getStringExtra("extra1");
+		final String id = getIntent().getStringExtra("extra2");
+		
+		/*Toast.makeText(getApplicationContext(),
+				note, Toast.LENGTH_LONG)
+                .show();*/
+		final TextView recdate = (TextView)findViewById(R.id.date);
+		final TextView recnote = (TextView)findViewById(R.id.note);
+		
+		recdate.setText(date);
+		recnote.setText(note);
 
-		note=(EditText)findViewById(R.id.editText1);
 		Button set = (Button) findViewById(R.id.set);
 		set.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				String notes=note.getText().toString();
+				String notes=recnote.getText().toString();
+				String dates=recdate.getText().toString();
 	        	if(!notes.equals("")){
-					db.addContact(new getsetinfo(s.toString(), notes));
+					db.updaterow(id, notes, dates);
 	
 					finish();
-		            Toast.makeText(addnewrecord.this, "Saved", Toast.LENGTH_SHORT).show();
+		            Toast.makeText(editdata.this, "Record Edited", Toast.LENGTH_SHORT).show();
 
 	        	}
 			}
 		});
-		// Inserting Contacts
-		/*Log.d("Insert: ", "Inserting ..");
-		db.addContact(new getsetinfo("Ravi", "9100000000"));
-		db.addContact(new getsetinfo("Srinivas", "9199999999"));
-		db.addContact(new getsetinfo("Tommy", "9522222222"));
-		db.addContact(new getsetinfo("Karthik", "9533333333"));*/
 		
-		//Reading Single Contact
-		
-
-		// Reading all contacts
-		/*Log.d("Reading: ", "Reading all contacts..");
-		List<getsetinfo> contacts = db.getAllContacts();
-
-		for (getsetinfo cn : contacts) {
-			String log = "Id: " + cn.getID() + " ,Name: " + cn.getDate()
-					+ " ,Phone: " + cn.getnote();
-			// Writing Contacts to log
-			Log.d("Name: ", log);
-		}*/
 		
 	
 	}
 	@Override
-    public boolean onCreateOptionsMenu(Menu menu)
+   public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.layout.menu, menu);
@@ -97,7 +83,7 @@ public class addnewrecord extends Activity {
 					db.addContact(new getsetinfo(s.toString(), notes));
 	
 					finish();
-		            Toast.makeText(addnewrecord.this, "Saved", Toast.LENGTH_SHORT).show();
+		            Toast.makeText(editdata.this, "Saved", Toast.LENGTH_SHORT).show();
 	        	
 	            return true;
 	        	}

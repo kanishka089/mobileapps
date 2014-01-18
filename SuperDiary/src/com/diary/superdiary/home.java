@@ -1,45 +1,28 @@
 package com.diary.superdiary;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import com.google.ads.AdRequest;
-import com.google.ads.AdSize;
-import com.google.ads.AdView;
-import com.google.analytics.tracking.android.EasyTracker;
-import com.smaato.soma.BannerView;
-
-
-
-
-
-import android.R.color;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.google.ads.AdRequest;
+import com.google.ads.AdSize;
+import com.google.ads.AdView;
+import com.google.analytics.tracking.android.EasyTracker;
 
 public class home extends Activity{
 	
@@ -86,6 +69,7 @@ public class home extends Activity{
 
         listView = (ListView) findViewById(R.id.listView1);
         listView.setAdapter(new MyCustomBaseAdapter(this, contactList));
+        
         /*ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, ArrayofName);
 
@@ -112,8 +96,8 @@ public class home extends Activity{
 				// TODO Auto-generated method stub
 				AlertDialog.Builder b=new AlertDialog.Builder(home.this);
 				b.setIcon(android.R.drawable.ic_dialog_alert);
-				b.setMessage("Are you sure you want to delete this");
-				b.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				b.setMessage("Choose Delete or Edit");
+				b.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 					  public void onClick(DialogInterface dialog, int whichButton) {
 						  
 						 /* Toast.makeText(getApplicationContext(),
@@ -127,11 +111,28 @@ public class home extends Activity{
 						    startActivity(intent);
 					  }
 					});
-				b.setNegativeButton("No",
+				b.setNegativeButton("Edit",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,
                                     int whichButton) {
-                                dialog.cancel();
+                                //dialog.cancel();
+                                TextView dbidsingle = (TextView) arg1.findViewById(R.id.cityState);
+                				getsetinfo get= db.getContact(Integer.parseInt(dbidsingle.getText().toString()));
+                				String date=get.getDate();
+                				String note=get.getnote();
+                				//int i=get.getID();
+                				/*Toast.makeText(getApplicationContext(),
+                						i+"", Toast.LENGTH_LONG)
+                                        .show();*/
+                				Intent intent = getIntent();
+                				finish();
+                				startActivity(intent);
+                				Intent intent1 = new Intent(home.this, editdata.class); 
+                                intent1.putExtra("extra", date);
+                                intent1.putExtra("extra1", note);
+                                intent1.putExtra("extra2", dbidsingle.getText().toString());
+                                startActivity(intent1);
+                                
                             }
                         });
 				
